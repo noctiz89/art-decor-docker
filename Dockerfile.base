@@ -1,0 +1,15 @@
+FROM debian:jessie-slim
+
+COPY assets/webupd8team-java.list /etc/apt/sources.list.d/
+
+# This preempts the request to accept the Java8 license. From  https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
+RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
+RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
+
+# directory man1 is required for installing java8
+RUN mkdir -p /usr/share/man/man1
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
+RUN apt-get update
+RUN apt-get install -y --allow-unauthenticated oracle-java8-installer oracle-java8-set-default tomcat7 patch python sudo
+RUN apt-get install -y sudo vim curl
