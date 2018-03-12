@@ -5,7 +5,7 @@ Dockerfile and assets to create an image of ART-DECOR (www.art-decor.org). The s
 * downloads the ART-DECOR Orbeon source, [eXistdb](http://www.exist-db.org) and eXistdb packages from the Nictiz repository
 * runs the `docker build` command
 
-`run.sh`
+`run.sh`:
 * runs the image/container with `docker run` attaching ports `8877` and `8080`
 
 After calling `run.sh` it should be possible to:
