@@ -6,26 +6,20 @@ echo 'This script intends to make the installation a little easier,'
 echo 'although several manual steps are still included.'
 echo 'This script needs to run as root and will store any files in'
 echo '/root'
-
-export TOMCAT_HOME=/usr/local/tomcat
+export TOMCAT_HOME=/usr/share/tomcat7
 export EXIST_HOST=parasite
 export ASSETS=/root/assets
-
 cd /root
-
-
 # Install & configure tomcat7, set JAVA_HOME to the Oracle version.
 echo 'Configuring tomcat7.'
 sed -i '/#JAVA_HOME=/a JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre' /etc/default/tomcat7
 patch /etc/tomcat7/server.xml $ASSETS/server.xml.patch
-
 echo 'Creating directories for art-decor logs'
 mkdir /usr/share/tomcat7/logs
 touch /usr/share/tomcat7/logs/art-decor.log
 chown tomcat7 /usr/share/tomcat7/logs/art-decor.log
 chmod 644 /usr/share/tomcat7/logs/art-decor.log
 ln -s /usr/share/tomcat7/logs/art-decor.log /var/log/tomcat7/
-
 echo 'Moving art-decor.war into place'
 mv $ASSETS/art-decor.war $TOMCAT_HOME/webapps
 
