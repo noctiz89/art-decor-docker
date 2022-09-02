@@ -11,4 +11,4 @@ RUN mv assets/bash/bashrc.root /root/.bashrc
 RUN mv assets/bash/profile.root /root/.profile
 
 RUN mv assets/install_art_decor_custom.sh /root
-RUN ["install_art_decor_custom"]
+RUN ["install_art_decor_custom.sh"]
