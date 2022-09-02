@@ -12,11 +12,11 @@ BASE_URL="http://decor.nictiz.nl/apps/public-repo/public/"
 
 # Order is important!
 PACKAGES=(
-  "ART-1.8.58.xar"
-  "DECOR-core-1.8.42.xar"
-  "DECOR-services-1.8.35.xar"
-  "ART-DECOR-system-services-1.8.23.xar"
-  "terminology-1.8.36.xar"
+  "ART-2.0.27.xar"
+  "DECOR-core-2.0.23.xar"
+  "DECOR-services-2.0.15.xar"
+  "ART-DECOR-system-services-2.0.0.xar"
+  "terminology-2.0.11.xar"
 )
     
 for i in "${PACKAGES[@]}"
