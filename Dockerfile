@@ -13,4 +13,5 @@ RUN mv assets/bash/profile.root /root/.profile
 RUN mv assets/install_art_decor.sh /root
 RUN chmod +x install_art_decor.sh
 
-CMD ["/root/assets/start_services.sh"]
+RUN mv assets/start_services.sh /root
+CMD ["start_services.sh"]
