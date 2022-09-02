@@ -7,7 +7,8 @@ echo 'although several manual steps are still included.'
 echo 'This script needs to run as root and will store any files in'
 echo '/root'
 
-export TOMCAT_HOME=/var/lib/tomcat7
+#export TOMCAT_HOME=/var/lib/tomcat7
+export TOMCAT_HOME=/usr/local/tomcat
 export EXIST_HOST=parasite
 export ASSETS=/root/assets
 
