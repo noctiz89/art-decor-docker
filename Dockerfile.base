@@ -1,15 +1,16 @@
-FROM debian:jessie-slim
+# Pull base image
+FROM art-decor-base
 
-COPY assets/webupd8team-java.list /etc/apt/sources.list.d/
+WORKDIR /root
+ADD assets /root/assets/
 
-# This preempts the request to accept the Java8 license. From  https://askubuntu.com/questions/190582/installing-java-automatically-with-silent-option
-RUN echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections
-RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections
+# Just for a more pleasant bash experience
+RUN mv assets/bash/bash.bashrc /etc
+RUN mv assets/bash/profile /etc
+RUN mv assets/bash/bashrc.root /root/.bashrc
+RUN mv assets/bash/profile.root /root/.profile
 
-# directory man1 is required for installing java8
-RUN mkdir -p /usr/share/man/man1
+RUN mv assets/install_art_decor.sh /root
+RUN chmod +x install_art_decor.sh
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886
-RUN apt-get update
-RUN apt-get install -y --allow-unauthenticated oracle-java8-installer oracle-java8-set-default tomcat7 patch python sudo
-RUN apt-get install -y sudo vim curl
+CMD ["/root/start_services.sh"]

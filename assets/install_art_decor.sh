@@ -7,8 +7,7 @@ echo 'although several manual steps are still included.'
 echo 'This script needs to run as root and will store any files in'
 echo '/root'
 
-export TOMCAT_HOME=/var/lib/tomcat7
-export CATALINA_HOME=/usr/local/tomcat
+export TOMCAT_HOME=/usr/local/tomcat
 export EXIST_HOST=parasite
 export ASSETS=/root/assets
 
@@ -33,7 +32,7 @@ mv $ASSETS/art-decor.war $TOMCAT_HOME/webapps
 # Unfortunately eXist-db requires user input during installation. Fortunately
 # there's a python script (by Melle) to take care of that :-)
 echo 'Running eXist-db installer'
-python $ASSETS/install_existdb.py
+python3 $ASSETS/install_existdb.py
 
 # Create symlinks
 ln -s /usr/local/exist_atp_2.2 /usr/local/exist_atp
