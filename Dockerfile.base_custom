@@ -1,0 +1,4 @@
+FROM openweb/oracle-tomcat:7-jre8
+
+RUN apt-get update && \
+    apt-get install -y --allow-unauthenticated patch python3 sudo vim
