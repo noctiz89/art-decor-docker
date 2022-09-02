@@ -14,4 +14,4 @@ RUN mv assets/install_art_decor.sh /root
 RUN chmod +x install_art_decor.sh
 
 RUN mv assets/start_services.sh /root
-CMD ["start_services.sh"]
+CMD ["/root/start_services.sh"]
